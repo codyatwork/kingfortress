@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+    <link href="chessboard-0.3.0.min.css" rel="stylesheet">
+    <link href="kingfortress.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="wrapper">
+        <img class="ui restart" src="img/redo-alt-solid.svg" alt="Restart button">
+        <div id="board"></div>
+        <div id="promotion-menu" class="centered">
+            <img id="promote-q" class="promotion-button" src="img/chesspieces/wikipedia/bQ.png">
+            <img id="promote-r" class="promotion-button" src="img/chesspieces/wikipedia/bR.png">
+            <img id="promote-b" class="promotion-button" src="img/chesspieces/wikipedia/bB.png">
+            <img id="promote-n" class="promotion-button" src="img/chesspieces/wikipedia/bN.png">
+        </div>
+        <span id="end-text" class="centered"></span>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.0.min.js"
+        integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
+    <script src="chess-kf.min.js"></script>
+    <script src="chessboard-kf.min.js"></script>
+    <script src="kingfortress.js"></script>
+</body>
+
+</html>
