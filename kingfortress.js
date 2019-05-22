@@ -131,16 +131,12 @@ var specialMoves = function (square, fullPiece) {
             var possibleMoves = game.moves({ square: square, verbose: true });
             possibleMoves.forEach(function (move) {
                 if (move.flags.includes("c")) {
-                    if (game.in_check()) {
-                        var snipePiece = game.get(move.to);
-                        game.remove(move.to);
-                        if (!game.in_check()) {
-                            moves.push(move.to);
-                        }
-                        game.put({ type: snipePiece.type, color: snipePiece.color }, move.to);
-                    } else {
+                    var snipePiece = game.get(move.to);
+                    game.remove(move.to);
+                    if (!game.in_check()) {
                         moves.push(move.to);
                     }
+                    game.put({ type: snipePiece.type, color: snipePiece.color }, move.to);
                 }
             });
             return moves;
