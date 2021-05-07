@@ -795,7 +795,26 @@
       return ''
     }
 
+    var entityMap = {
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&#39;',
+      '/': '&#x2F;',
+      '`': '&#x60;',
+      '=': '&#x3D;'
+    }
+
+    function escapeHTML(string) {
+      return String(string).replace(/[&<>"'`=\/]/g, function(s) {
+        return entityMap[s]
+      })
+    }
+
     function buildPieceHTML(piece, hidden, id) {
+      piece = escapeHTML(piece)
+      id = escapeHTML(id)
       var html = '<img src="' + buildPieceImgSrc(piece) + '" '
       if (isString(id) && id !== '') {
         html += 'id="' + id + '" '
