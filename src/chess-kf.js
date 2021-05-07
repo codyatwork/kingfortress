@@ -1405,10 +1405,6 @@ var Chess = function(fen) {
       var sloppy = (typeof options !== 'undefined' && 'sloppy' in options) ?
                     options.sloppy : false;
 
-      function mask(str) {
-        return str.replace(/\\/g, '\\');
-      }
-
       function has_keys(object) {
         for (var key in object) {
           return true;
@@ -1421,7 +1417,7 @@ var Chess = function(fen) {
                             typeof options.newline_char === 'string') ?
                             options.newline_char : '\r?\n';
         var header_obj = {};
-        var headers = header.split(new RegExp(mask(newline_char)));
+        var headers = header.split(new RegExp(newline_char));
         var key = '';
         var value = '';
 
@@ -1439,9 +1435,9 @@ var Chess = function(fen) {
       var newline_char = (typeof options === 'object' &&
                           typeof options.newline_char === 'string') ?
                           options.newline_char : '\r?\n';
-      var regex = new RegExp('^(\\[(.|' + mask(newline_char) + ')*\\])' +
-                             '(' + mask(newline_char) + ')*' +
-                             '1.(' + mask(newline_char) + '|.)*$', 'g');
+      var regex = new RegExp('^(\\[(.|' + newline_char + ')*\\])' +
+                             '(' + newline_char + ')*' +
+                             '1.(' + newline_char + '|.)*$', 'g');
 
       // get header part of the PGN file
       var header_string = pgn.replace(regex, '$1');
@@ -1467,7 +1463,7 @@ var Chess = function(fen) {
       }
 
       // delete header to get the moves
-      var ms = pgn.replace(header_string, '').replace(new RegExp(mask(newline_char), 'g'), ' ');
+      var ms = pgn.replace(header_string, '').replace(new RegExp(newline_char, 'g'), ' ');
 
       // delete comments
       ms = ms.replace(/(\{[^}]+\})+?/g, '');
