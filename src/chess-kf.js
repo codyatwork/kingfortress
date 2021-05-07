@@ -421,7 +421,7 @@ var Chess = function(fen) {
 
     // don't let the user place more than one king
     if (piece.type == KING &&
-        !(kings[piece.color] == EMPTY || kings[piece.color] == sq)) {
+      !(kings[piece.color] == EMPTY || kings[piece.color] == sq)) {
       return false;
     }
 
