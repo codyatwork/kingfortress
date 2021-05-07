@@ -1,0 +1,9 @@
+- name: Butler Push
+  steps:
+  - uses: josephbmanley/butler-publish-itchio-action@master
+    env:
+      BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
+      CHANNEL: web
+      ITCH_GAME: king-fortress
+      ITCH_USER: tagurit
+      PACKAGE: /
