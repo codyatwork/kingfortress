@@ -13,4 +13,4 @@ jobs:
           CHANNEL: web
           ITCH_GAME: king-fortress
           ITCH_USER: tagurit
-          PACKAGE: /
+          PACKAGE: .
